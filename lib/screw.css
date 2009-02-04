@@ -73,6 +73,11 @@ html {
             color: white !important;
           }
 
+          .describes .describe .its .it.pending h2 {
+            background-color: #FFD700;
+            color: white !important;
+          }
+
           .describes .describe .its .it.failed h2 {
             background-color: #993300;
             color: white !important;
