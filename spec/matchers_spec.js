@@ -232,6 +232,22 @@ Screw.Unit(function() {
         });
       });
     });
+    
+    describe("#be_an_instance_of", function() {
+        var j;
+        var s;
+        before(function() {
+            j = new jQuery;
+            s = new RegExp("Foo+bar");
+        });
+        it("returns true for instances of the class", function() {
+            expect(j).to(be_an_instance_of,jQuery);
+        });
+        it("returns false for instances not of the class", function() {
+            expect(s).to_not(be_an_instance_of,jQuery);
+        });
+    });
+
 
   });
 });
