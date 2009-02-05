@@ -1,3 +1,24 @@
+<<<<<<< HEAD:.gitignore
 *.iml
 *.ipr
 *.iws
+=======
+.gitignore
+*.core
+core
+Build
+blib
+*.bak
+*_wrap\.*
+\.*sw[op]
+_build
+tmp*
+pod2htm*
+lib/Math/GSL/[A-z0-9]*\.pm
+Makefile
+*.data
+foo*
+tags
+.DS_Store
+xs/*_wrap.c
+>>>>>>> 7b3a92c6fde361930b9898179028a1cdc87211aa:.gitignore
