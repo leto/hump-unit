@@ -248,6 +248,17 @@ Screw.Unit(function() {
         });
     });
 
-
+    describe("#have_method", function() {
+        var m;
+        before(function() {
+            m = new Array(42);
+        });
+        it("returns true for objects that have the method", function() {
+            expect(m).to(have_method,'pop');
+        });
+        it("returns false for objects that do not have the method", function() {
+            expect(m).to_not(have_method,'bessel');
+        });
+    });
   });
 });
