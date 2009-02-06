@@ -249,15 +249,22 @@ Screw.Unit(function() {
     });
 
     describe("#have_method", function() {
-        var m;
+        var a;
         before(function() {
-            m = new Array(42);
+            a = new Array(42);
         });
         it("returns true for objects that have the method", function() {
-            expect(m).to(have_method,'pop');
+            expect(a).to(have_method,'pop');
         });
         it("returns false for objects that do not have the method", function() {
-            expect(m).to_not(have_method,'bessel');
+            expect(a).to_not(have_method,'bessel');
+        });
+    });
+
+    describe("#throw_error", function() {
+        it("returns true for functions that throw the error msg", function() {
+            expect(function() { var m = new Math; }).to(throw_error,
+                'TypeError: Math is not a constructor');
         });
     });
   });
