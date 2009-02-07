@@ -234,17 +234,11 @@ Screw.Unit(function() {
     });
     
     describe("#be_an_instance_of", function() {
-        var j;
-        var s;
-        before(function() {
-            j = new jQuery;
-            s = new RegExp("Foo+bar");
-        });
         it("returns true for instances of the class", function() {
-            expect(j).to(be_an_instance_of,jQuery);
+            expect(new jQuery).to(be_an_instance_of,jQuery);
         });
         it("returns false for instances not of the class", function() {
-            expect(s).to_not(be_an_instance_of,jQuery);
+            expect(new RegExp("Foo+bar")).to_not(be_an_instance_of,jQuery);
         });
     });
 
@@ -265,6 +259,13 @@ Screw.Unit(function() {
         it("returns true for functions that throw the error msg", function() {
             expect(function() { var m = new Math; }).to(throw_error,
                 'TypeError: Math is not a constructor');
+        });
+    });
+
+    describe("#throw_error_matching", function() {
+        it("returns true for functions that throws a matching error msg", function() {
+            expect(function() { var m = new Math; }).to(throw_error_matching,
+                ': Math is not a constructor');
         });
     });
   });
