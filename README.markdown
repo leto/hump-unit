@@ -1,4 +1,4 @@
-Screw.Unit is a Behavior-Driven Testing Framework for Javascript. It features nested describes. Its goals are to provide:
+Hump.Unit is a Behavior-Driven Testing Framework for Javascript. It features nested describes. Its goals are to provide:
 
 * a DSL for elegant, readable, organized specs;
 * an interactive runner that can execute focused specs and describes; 
@@ -17,7 +17,7 @@ The testing language is closure-based. Consider,
       });
     });
 
-A key feature of Screw.Unit are nested `describes` and the cascading `before` (and `after`) behavior that entails:
+A key feature of Hump.Unit are nested `describes` and the cascading `before` (and `after`) behavior that entails:
 
     describe("a nested describe", function() {
       var invocations = [];
@@ -39,7 +39,7 @@ A key feature of Screw.Unit are nested `describes` and the cascading `before` (a
 
 # The Runner
 
-The Screw.Unit runner is pretty fancy, supporting focused `describes` and focused `its`:
+The Hump.Unit runner is pretty fancy, supporting focused `describes` and focused `its`:
 
 ![Focused Runner](http://s3.amazonaws.com/assets.pivotallabs.com/86/original/focused.png)
 
@@ -49,17 +49,17 @@ Click on a `describe` or `it` to run just those tests.
 
 A global `before` is a `before` block run before all tests in a test suite, regardless of their nesting. This is often useful to reset global variables, or blank-out DOM nodes before each test is run. Put this at the top of the your suite file or in your spec helper.
 
-    Screw.Unit(function() {
+    Hump.Unit(function() {
       before(function() { ... });
     });
     
-Note that you can have any number of `Screw.Unit(...)` blocks in one file. Thus, you can have multiple global `befores` and `afters`.
+Note that you can have any number of `Hump.Unit(...)` blocks in one file. Thus, you can have multiple global `befores` and `afters`.
 
 # Custom Matchers
 
 A custom matcher is a custom assertion specifically tailored to your application. These are helpful in increasing the readability and declarativity of your tests. To create a custom matcher, fill in the blanks for this code:
 
-    Screw.Matchers["be_even"] = {
+    Hump.Matchers["be_even"] = {
       match: function(expected, actual) {
         return actual % 2 == 0;
       },
@@ -226,7 +226,7 @@ In `suite.html`:
 
 In `spec_helper.js`:
 
-    Screw.Unit(function() {
+    Hump.Unit(function() {
       before(function() {
         document.getElementById('dom_test').innerHTML = ''; // but use your favorite JS library here.
       });
@@ -246,16 +246,16 @@ A Javascript library like jQuery, Prototype, or YUI is a essential for testing e
 
 # Implementation Details
 
-Screw.Unit is implemented using some fancy metaprogramming learned from the formidable Yehuda Katz. This allows the `describe` and `it` functions to not pollute the global namespace. Essentially, we take the source code of your test and wrap it in a with block which provides a new scope:
+Hump.Unit is implemented using some fancy metaprogramming learned from the formidable Yehuda Katz. This allows the `describe` and `it` functions to not pollute the global namespace. Essentially, we take the source code of your test and wrap it in a with block which provides a new scope:
 
     var contents = fn.toString().match(/^[^\{]*{((.*\n*)*)}/m)[1];
     var fn = new Function("matchers", "specifications",
       "with (specifications) { with (matchers) { " + contents + " } }"
     );
 
-    fn.call(this, Screw.Matchers, Screw.Specifications);
+    fn.call(this, Hump.Matchers, Hump.Specifications);
 
-Furthermore, Screw.Unit is implemented using the **Concrete Javascript** style, which is made possible by the [Effen plugin](http://github.com/nkallen/effen/tree/master) and jQuery. Concrete Javascript is an alternative to MVC. In Concrete Javascript, DOM objects serve as the model and view simultaneously. The DOM is constructed using semantic (and visual) markup, and behaviors are attached directly to DOM elements. For example,
+Furthermore, Hump.Unit is implemented using the **Concrete Javascript** style, which is made possible by the [Effen plugin](http://github.com/nkallen/effen/tree/master) and jQuery. Concrete Javascript is an alternative to MVC. In Concrete Javascript, DOM objects serve as the model and view simultaneously. The DOM is constructed using semantic (and visual) markup, and behaviors are attached directly to DOM elements. For example,
 
     $('.describe').fn({
       parent: function() {
@@ -278,7 +278,7 @@ Bind behaviors by passing a hash (see the previous example). Using CSS3 selector
 
 # Extensibility
 
-Screw.Unit is designed from the ground-up to be extensible. For example, to add custom logging, simply subscribe to certain events:
+Hump.Unit is designed from the ground-up to be extensible. For example, to add custom logging, simply subscribe to certain events:
 
     $('.it')
       .bind('enqueued', function() {...})
@@ -288,7 +288,7 @@ Screw.Unit is designed from the ground-up to be extensible. For example, to add 
 
 There are also events for the `loading` and `loaded` test code code, as well as just `before` and just `after` all tests are run:
 
-    $(Screw)
+    $(Hump)
       .bind('loading', function() {...})
       .bind('loaded', function() {...})
       .bind('before', function() {...})
@@ -296,7 +296,7 @@ There are also events for the `loading` and `loaded` test code code, as well as 
 
 # Download
 
-You can [download the source](http://github.com/nkallen/screw-unit/tree/master) from Github. There is are plenty of examples in the distribution.
+You can [download the source](http://github.com/nkallen/hump-unit/tree/master) from Github. There is are plenty of examples in the distribution.
 
 # Thanks to
 

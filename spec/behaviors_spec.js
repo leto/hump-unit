@@ -1,4 +1,4 @@
-Screw.Unit(function() {
+Hump.Unit(function() {
   var global_before_invoked = false, global_after_invoked = false;
   before(function() { global_before_invoked = true });
   after(function() { global_after_invoked = true });

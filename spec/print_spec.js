@@ -1,4 +1,4 @@
-Screw.Unit(function() {
+Hump.Unit(function() {
   describe("Print", function() {
     describe('when given undefined', function() {
       it("returns 'undefined'", function() {

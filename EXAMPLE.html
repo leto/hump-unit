@@ -14,11 +14,11 @@
     <script src="lib/jquery.js"></script>
     <script src="lib/jquery.fn.js"></script>
     <script src="lib/jquery.print.js"></script>
-    <script src="lib/screw.builder.js"></script>
-    <script src="lib/screw.matchers.js"></script>
-    <script src="lib/screw.events.js"></script>
-    <script src="lib/screw.behaviors.js"></script>
-    <link rel="stylesheet" href="lib/screw.css">
+    <script src="lib/hump.builder.js"></script>
+    <script src="lib/hump.matchers.js"></script>
+    <script src="lib/hump.events.js"></script>
+    <script src="lib/hump.behaviors.js"></script>
+    <link rel="stylesheet" href="lib/hump.css">
     
     <script type="text/javascript">
       // Here is the system under test (SUT)--that is, your application code that you would like
@@ -31,7 +31,7 @@
     <script type="text/javascript">
       // Here is a Custom Matcher. A custom matcher is a custom assertion,
       // tailored to your application; these help to make your tests more readable.
-      Screw.Matchers["be_even"] = {
+      Hump.Matchers["be_even"] = {
         match: function(expected, actual) {
           return actual % 2 == 0;
         },
@@ -43,12 +43,12 @@
     
     <script type="text/javascript">
       // Here is a sample test. Note that all tests are wrapped in
-      // "Screw.Unit(function() { ... })".
-      Screw.Unit(function() {
+      // "Hump.Unit(function() { ... })".
+      Hump.Unit(function() {
         // Tests are organized into 'describes' and 'its', following the style of RSpec.
         describe("foo", function() {
           it("returns 2", function() {
-            // 'equal' is one among many matchers provided with the Screw.Unit distribution. It
+            // 'equal' is one among many matchers provided with the Hump.Unit distribution. It
             // is smart enough to compare arrays, objects, and primitives.
             expect(foo()).to(equal, 2);
           });

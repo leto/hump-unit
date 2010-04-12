@@ -1,4 +1,4 @@
-Screw.Matchers["have"] = {
+Hump.Matchers["have"] = {
   match: function(expected, actual) {
     return actual.find(expected).length > 0;
   },

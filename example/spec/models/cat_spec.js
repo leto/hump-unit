@@ -1,4 +1,4 @@
-Screw.Unit(function() {
+Hump.Unit(function() {
   describe('Cat', function() {
     var cat;
     
