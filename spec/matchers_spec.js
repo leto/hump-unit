@@ -1,5 +1,14 @@
 Hump.Unit(function() {
   describe("Matchers", function() {
+    describe("#eq", function() {
+      it("compares the expected to the actual with the === operator (exact object equality)", function() {
+        var a = {};
+        var b = {};
+
+        expect(a).to(eq, a);
+        expect(a).to_not(eq, b);
+      });
+    });
     describe('#equal', function() {
       it("invokes the provided matcher on a call to expect", function() {
         expect(true).to(equal, true);
