@@ -1,4 +1,7 @@
-Hump.Unit is a Behavior-Driven Testing Framework for Javascript. It features nested describes. Its goals are to provide:
+Hump.Unit is a Behavior-Driven Testing Framework for Javascript, and is a lightweight fork of Screw.Unit.
+
+
+It features nested describes. Its goals are to provide:
 
 * a DSL for elegant, readable, organized specs;
 * an interactive runner that can execute focused specs and describes; 
