@@ -9,6 +9,14 @@ Hump.Unit(function() {
         expect(a).to_not(eq, b);
       });
     });
+    describe("#similar", function() {
+      it("compares numbers that are similar", function() {
+
+        expect(1).to(be_similar, 1);
+        expect(1).to(be_similar, 1.0001);
+        expect(1).to_not(be_similar, 1.1);
+      });
+    });
     describe('#equal', function() {
       it("invokes the provided matcher on a call to expect", function() {
         expect(true).to(equal, true);
