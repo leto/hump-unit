@@ -157,7 +157,7 @@ Hump.Unit(function() {
         
         describe("an exception in a test", function() {
           it("fails because it throws an exception", function() {
-            throw('an exception');
+            expect(function() { throw('an exception'); }).to(throw_error_matching,'an exception');
           });
           
           it("invokes [after]s even if the previous [it] raised an exception", function() {
@@ -186,3 +186,4 @@ Hump.Unit(function() {
     });
   });
 });
+
